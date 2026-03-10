@@ -6,6 +6,8 @@ import torch.nn.functional as F
 from model.predict import model, transform, classes
 
 def predict(img):
+    if img is None:
+        return None
     img = transform(img).unsqueeze(0).to("cpu")
 
     with torch.no_grad():
