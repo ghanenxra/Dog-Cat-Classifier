@@ -8,6 +8,8 @@ from model.predict import model, transform, classes
 def predict(img):
     if img is None:
         return None
+    # Convert image to RGB to handle 4-channel images (e.g., PNGs)
+    img = img.convert("RGB")
     img = transform(img).unsqueeze(0).to("cpu")
 
     with torch.no_grad():
@@ -49,7 +51,7 @@ with gr.Blocks(title="Dog vs Cat Classifier") as demo:
 
 if __name__ == "__main__":
     demo.launch(
-        inbrowser=True,
         server_name="0.0.0.0",
         server_port=int(os.environ.get("PORT", 7860))
     )
+    demo.launch()
