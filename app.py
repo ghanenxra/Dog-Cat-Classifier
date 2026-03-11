@@ -32,9 +32,9 @@ with gr.Blocks(title="Dog vs Cat Classifier") as demo:
 
     # INPUT AT TOP
     image_input = gr.Image(
-        sources=["upload", "webcam"],
+        sources=["upload"],
         type="pil",
-        label="Upload Image or Use Webcam"
+        label="Upload Image"
     )
 
     # OUTPUT AT BOTTOM
