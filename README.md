@@ -25,8 +25,8 @@ The model is a ResNet-18 model fine-tuned on a private dataset of dog and cat im
 
 ## Training
 
-The model was trained for 10 epochs with a learning rate of 0.001.
+The model was trained for 20 epochs with a learning rate of 0.001.
 
 ## Author
 
-This application was created by [Your Name](https://github.com/your-name).
+This application was created by Ghanendra Chakradhari
