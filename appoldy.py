@@ -2,16 +2,9 @@ import gradio as gr
 import torch
 import torch.nn.functional as F
 
-from model.predict import model, transform
-
-# We define the labels explicitly here so you can see them!
-classes = ["Cat", "Dog"]
+from model.predict import model, transform, classes
 
 def predict(img):
-    if img is None:
-        return None
-    # Convert image to RGB to handle 4-channel images (e.g., PNGs)
-    img = img.convert("RGB")
     img = transform(img).unsqueeze(0).to("cpu")
 
     with torch.no_grad():
@@ -52,4 +45,4 @@ with gr.Blocks(title="Dog vs Cat Classifier") as demo:
     )
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(inbrowser=True)
